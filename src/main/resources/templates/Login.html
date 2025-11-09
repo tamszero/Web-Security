@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>취약한 로그인 시스템</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 360px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 6px;
+            color: #555;
+            font-weight: 600;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #187bcd;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .test-account {
+            font-size: 13px;
+            color: #777;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h1>🔐 취약한 로그인 시스템</h1>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+
+    <form action="/login" method="post">
+        <label for="username">사용자 이름</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">로그인</button>
+    </form>
+
+    <p class="test-account">💡 테스트 계정: <strong>admin / admin123</strong></p>
+</div>
+</body>
+</html>

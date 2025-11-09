@@ -233,9 +233,9 @@
                                 작성자:
                                 <strong
                                         th:attrappend="onclick='alert(\'' + ${comment.author} + '\')'"
-                                        style="cursor:pointer;"
+                                        style="cursor:pointer; color:#3CB371;"
                                 >
-                                    <span th:text="${comment.author}"></span>
+                                <span th:text="${comment.author}"></span>
                                 </strong>
                             </div>
                             <div class="time" th:text="${#dates.format(comment.createdAt, 'yyyy-MM-dd HH:mm')}">2025-09-30 00:00</div>
